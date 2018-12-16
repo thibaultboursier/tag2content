@@ -12,11 +12,11 @@ export interface IDelimiters {
 }
 
 export interface ITags {
-  [index: string]: (variables: ITagVariables) => string;
+  [index: string]: (variables: ITagVariables) => string | boolean;
 }
 
 export interface ITagVariables {
-  [index: string]: number | string;
+  [index: string]: string | boolean;
 }
 
 const defaultDelimiters: IDelimiters = {
@@ -32,7 +32,7 @@ export default (options: IOptions): string => {
     const regExp = new RegExp(`\\${delimiters.start}${tagKey}(?:[^\\]]*)?\\${delimiters.end}`, 'g');
 
     return baseContent.replace(regExp, (match: string) => {
-      return tag(getVariables(match));
+      return tag(getVariables(match)).toString();
     });
   }, baseContent);
 };

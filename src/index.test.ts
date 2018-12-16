@@ -66,3 +66,23 @@ test('It should replace "link" tag with variables', () => {
     'You should visit my website. <a href="http://www.google.com" title="Link to my website">My website</a>',
   );
 });
+
+test('It should replace "link" tag with variables', () => {
+  // Given
+  const options: IOptions = {
+    baseContent: 'Your login is [user name="Joe" is-admin="true"]',
+    tags: {
+      user: ({ isAdmin, name }) => {
+        return isAdmin ? `*${name}*` : name; 
+      },
+    },
+  };
+
+  // When
+  const updatedContent = tag2content(options);
+
+  // Then
+  expect(updatedContent).toBe(
+    'Your login is *Joe*',
+  );
+});
