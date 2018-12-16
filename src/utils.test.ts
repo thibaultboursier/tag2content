@@ -1,4 +1,4 @@
-import { getVariables } from "./utils";
+import { getVariables } from './utils';
 
 test('It should return "href" variable', () => {
   // Given
@@ -9,7 +9,7 @@ test('It should return "href" variable', () => {
 
   // Then
   expect(variables).toEqual({
-    href: "http://wwww.google.fr"
+    href: 'http://wwww.google.fr',
   });
 });
 
@@ -22,7 +22,7 @@ test('It should return "src" and "title" variables', () => {
 
   // Then
   expect(variables).toEqual({
-    src: "image.jpg",
-    title: "My image"
+    src: 'image.jpg',
+    title: 'My image',
   });
 });

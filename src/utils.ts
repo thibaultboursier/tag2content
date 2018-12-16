@@ -1,4 +1,4 @@
-import { ITagVariables } from ".";
+import { ITagVariables } from '.';
 
 export function getVariables(text: string) {
   const variables: ITagVariables = {};
