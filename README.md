@@ -15,3 +15,25 @@ $ npm install --save tag2content
 
 ```js
 import tag2content from 'tag2content';
+
+
+Creates a text, in which you define some tags:
+
+```js
+const text = 'I would like to go to [country] next year, with my friend [friend-name].';
+
+Create a configuration for you tags:
+
+```js
+const tags = {
+  country: () => 'Japan',
+  'friend-name': () => 'Joe',
+};
+
+Replace tags with their content:
+
+```js
+const updatedText = tag2content({
+  tags,
+  text,
+});
