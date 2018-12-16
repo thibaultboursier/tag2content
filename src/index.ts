@@ -36,3 +36,5 @@ export default (options: IOptions): string => {
     });
   }, baseContent);
 };
+
+module.exports = exports.default;

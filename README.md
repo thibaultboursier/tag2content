@@ -17,9 +17,6 @@ $ npm install --save tag2content
 // ES6
 import tag2content from 'tag2content';
 
-// TypeScript
-import * as tag2content from 'tag2content';
-
 // CommonJS
 const tag2content = require('tag2content');
 ```

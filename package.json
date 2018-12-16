@@ -40,6 +40,7 @@
   },
   "dependencies": {
     "@types/camelcase": "^4.1.0",
+    "@types/node": "^10.12.15",
     "camelcase": "^5.0.0",
     "escape-string-regexp": "^1.0.5"
   },
