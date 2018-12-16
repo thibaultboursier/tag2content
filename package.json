@@ -1,8 +1,9 @@
 {
   "name": "tag2content",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Replace a tag with content in a configurable way",
-  "main": "index.js",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "scripts": {
     "build": "tsc",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
