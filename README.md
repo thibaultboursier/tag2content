@@ -17,11 +17,13 @@ $ npm install --save tag2content
 import tag2content from 'tag2content';
 ```
 
-Creates a text, in which you define some tags:
+
+Create a text, in which you define some tags:
 
 ```js
 const text = 'I would like to go to [country] next year, with my friend [friend-name].';
 ```
+
 
 Create a configuration for you tags:
 
@@ -32,6 +34,7 @@ const tags = {
 };
 ```
 
+
 Replace tags with their content:
 
 ```js
@@ -39,4 +42,6 @@ const updatedText = tag2content({
   tags,
   text,
 });
+
+console.log(updatedText) //=> 'I would like to go to Japan next year, with my friend Joe.';
 ```
