@@ -7,12 +7,13 @@
     "build": "tsc",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
     "lint": "tslint -p tsconfig.json",
-    "postversion" : "git push && git push --tags",
-    "prepare" : "npm run build",
-    "prepublishOnly" : "npm test && npm run lint",
-    "preversion" : "npm run lint",
+    "postversion": "git push && git push --tags",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run lint",
+    "preversion": "npm run lint",
     "test": "jest --config jestconfig.json",
-    "version" : "npm run format && git add -A src"
+    "test-watch": "npm run test -- --watch",
+    "version": "npm run format && git add -A src"
   },
   "author": "Thibault Boursier",
   "license": "ISC",
@@ -27,5 +28,8 @@
   },
   "files": [
     "lib/**/*"
-  ]
+  ],
+  "dependencies": {
+    "escape-string-regexp": "^1.0.5"
+  }
 }

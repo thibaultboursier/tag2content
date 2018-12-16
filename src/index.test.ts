@@ -1,4 +1,4 @@
-import tag2content from "./index";
+import tag2content, { IOptions } from "./index";
 
 test('It should replace "name" tag by "John"', () => {
   // Given
@@ -52,5 +52,25 @@ test('It should replace all "city" and "year" tags', () => {
   // Then
   expect(updatedContent).toBe(
     "I arrived in Paris in 2003. I am so happy to live in Paris!"
+  );
+});
+
+test('It should replace "link" tag with variables', () => {
+  // Given
+  const options: IOptions = {
+    baseContent:
+      'You should visit my website. [link href="http://www.google.com"]',
+    tags: {
+      link: ({ href }) =>
+        `<a href="${href}" title="Link to my website">My website</a>`
+    }
+  };
+
+  // When
+  const updatedContent = tag2content(options);
+
+  // Then
+  expect(updatedContent).toBe(
+    'You should visit my website. <a href="http://www.google.com" title="Link to my website">My website</a>'
   );
 });
