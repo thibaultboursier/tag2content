@@ -1,5 +1,5 @@
-import { ITagVariables } from '.';
 import * as camelCase from 'camelcase';
+import { ITagVariables } from '.';
 
 export const getVariables = (text: string): ITagVariables => {
   const variables: ITagVariables = {};
@@ -9,15 +9,15 @@ export const getVariables = (text: string): ITagVariables => {
   while ((temp = regExp.exec(text))) {
     const name = camelCase(temp[1]);
     const value = getTransformedValue(temp[2]);
-    
+
     variables[name] = value;
   }
 
   return variables;
-}
+};
 
 const getTransformedValue = (value: string): string | boolean => {
-  switch(value) {
+  switch (value) {
     case 'true':
       return true;
     case 'false':
@@ -25,4 +25,4 @@ const getTransformedValue = (value: string): string | boolean => {
     default:
       return value;
   }
-}
+};

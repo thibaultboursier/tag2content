@@ -73,7 +73,7 @@ test('It should replace "link" tag with variables', () => {
     baseContent: 'Your login is [user name="Joe" is-admin="true"]',
     tags: {
       user: ({ isAdmin, name }) => {
-        return isAdmin ? `*${name}*` : name; 
+        return isAdmin ? `*${name}*` : name;
       },
     },
   };
@@ -82,7 +82,5 @@ test('It should replace "link" tag with variables', () => {
   const updatedContent = tag2content(options);
 
   // Then
-  expect(updatedContent).toBe(
-    'Your login is *Joe*',
-  );
+  expect(updatedContent).toBe('Your login is *Joe*');
 });
