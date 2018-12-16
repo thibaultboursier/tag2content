@@ -17,6 +17,17 @@
   },
   "author": "Thibault Boursier",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thibaultboursier/tag2content"
+  },
+  "keywords": [
+    "content",
+    "regex",
+    "replace",
+    "tag",
+    "template"
+  ],
   "devDependencies": {
     "@types/jest": "^23.3.10",
     "jest": "^23.6.0",
