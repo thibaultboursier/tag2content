@@ -57,7 +57,7 @@ console.log(updatedText) //=> 'I would like to go to Japan next year, with my fr
 You can add some variables to your tags.
 
 ```js
-const text = 'I would like to go to [country name="England"] next year, with my friend [friend-name name="Lucy" to-uppercase="true"].';
+const text = 'I go to [country name="England"] next year, with [friend name="Lucy" to-uppercase="true"].';
 ```
 
 When you defines a function for each tag, variables are passed as argument. Kebab case variables are transformed to Pascal case ("to-uppercase" becomes "toUppercase").
@@ -67,7 +67,7 @@ const tags = {
   country: variables => {
     return variables.name;
   },
-  'friend-name': ({ name, toUppercase }) => {
+  friend: ({ name, toUppercase }) => {
       return toUppercase ? name.toUpperCase() : name;
    }
 };
