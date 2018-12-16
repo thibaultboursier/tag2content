@@ -37,10 +37,14 @@
     "tslint-config-prettier": "^1.17.0",
     "typescript": "^3.2.2"
   },
+  "dependencies": {
+    "escape-string-regexp": "^1.0.5"
+  },
   "files": [
     "lib/**/*"
   ],
-  "dependencies": {
-    "escape-string-regexp": "^1.0.5"
-  }
+  "bugs": {
+    "url": "https://github.com/thibaultboursier/tag2content/issues"
+  },
+  "homepage": "https://github.com/thibaultboursier/tag2content#readme"
 }
