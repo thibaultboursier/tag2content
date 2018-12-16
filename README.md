@@ -18,7 +18,7 @@ $ npm install --save tag2content
 import tag2content from 'tag2content';
 
 // CommonJS
-const tag2content = require('tag2content');
+const tag2content = require('tag2content').default;
 ```
 
 ## Basic usage
