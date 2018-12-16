@@ -11,19 +11,17 @@ Install with [npm](https://www.npmjs.com/):
 $ npm install --save tag2content
 ```
 
-## Usage
+## Basic usage
 
 ```js
 import tag2content from 'tag2content';
 ```
-
 
 Create a text, in which you define some tags:
 
 ```js
 const text = 'I would like to go to [country] next year, with my friend [friend-name].';
 ```
-
 
 Create a configuration for you tags:
 
@@ -34,7 +32,6 @@ const tags = {
 };
 ```
 
-
 Replace tags with their content:
 
 ```js
@@ -44,4 +41,28 @@ const updatedText = tag2content({
 });
 
 console.log(updatedText) //=> 'I would like to go to Japan next year, with my friend Joe.';
+```
+
+## Variables
+
+You can add some variables to your tags.
+
+```js
+const text = 'I would like to go to [country name="England"] next year, with my friend [friend-name name="Lucy" to-uppercase="true"].';
+```
+
+When you defines a function for each tag, variables are passed as argument.
+
+```js
+const tags = {
+  country: variables => {
+    return variables.name;
+  },
+  'friend-name': ({
+    name,
+    toUppercase,
+   }) => {
+      return Boolean(toUppercase) ? name.toUpperCase() : name;
+   }
+};
 ```
