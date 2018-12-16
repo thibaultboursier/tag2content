@@ -21,7 +21,7 @@ import tag2content from 'tag2content';
 import * as tag2content from 'tag2content';
 
 // CommonJS
-import tag2content from 'tag2content';
+const tag2content = require('tag2content');
 ```
 
 ## Basic usage
@@ -60,17 +60,14 @@ You can add some variables to your tags.
 const text = 'I would like to go to [country name="England"] next year, with my friend [friend-name name="Lucy" to-uppercase="true"].';
 ```
 
-When you defines a function for each tag, variables are passed as argument. Kebab case variables are transformed to Pascal case.
+When you defines a function for each tag, variables are passed as argument. Kebab case variables are transformed to Pascal case ("to-uppercase" becomes "toUppercase").
 
 ```js
 const tags = {
   country: variables => {
     return variables.name;
   },
-  'friend-name': ({
-    name,
-    toUppercase,
-   }) => {
+  'friend-name': ({ name, toUppercase }) => {
       return toUppercase ? name.toUpperCase() : name;
    }
 };
