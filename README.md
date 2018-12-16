@@ -11,11 +11,20 @@ Install with [npm](https://www.npmjs.com/):
 $ npm install --save tag2content
 ```
 
-## Basic usage
+## Import
 
 ```js
+// ES6
+import tag2content from 'tag2content';
+
+// TypeScript
+import * as tag2content from 'tag2content';
+
+// CommonJS
 import tag2content from 'tag2content';
 ```
+
+## Basic usage
 
 Create a text, in which you define some tags:
 
@@ -51,7 +60,7 @@ You can add some variables to your tags.
 const text = 'I would like to go to [country name="England"] next year, with my friend [friend-name name="Lucy" to-uppercase="true"].';
 ```
 
-When you defines a function for each tag, variables are passed as argument.
+When you defines a function for each tag, variables are passed as argument. Kebab case variables are transformed to Pascal case.
 
 ```js
 const tags = {
@@ -62,7 +71,7 @@ const tags = {
     name,
     toUppercase,
    }) => {
-      return Boolean(toUppercase) ? name.toUpperCase() : name;
+      return toUppercase ? name.toUpperCase() : name;
    }
 };
 ```
