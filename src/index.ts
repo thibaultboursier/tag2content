@@ -1,9 +1,9 @@
 import { getVariables } from './utils';
 
 export interface IOptions {
-  baseContent: string;
   delimiters?: IDelimiters;
   tags: ITags;
+  text: string;
 }
 
 export interface IDelimiters {
@@ -25,14 +25,14 @@ const defaultDelimiters: IDelimiters = {
 };
 
 export default (options: IOptions): string => {
-  const { baseContent, delimiters = defaultDelimiters, tags } = options;
+  const { delimiters = defaultDelimiters, tags, text } = options;
 
-  return Object.keys(tags).reduce((baseContent: string, tagKey: string) => {
+  return Object.keys(tags).reduce((text: string, tagKey: string) => {
     const tag = tags[tagKey];
     const regExp = new RegExp(`\\${delimiters.start}${tagKey}(?:[^\\]]*)?\\${delimiters.end}`, 'g');
 
-    return baseContent.replace(regExp, (match: string) => {
+    return text.replace(regExp, (match: string) => {
       return tag(getVariables(match)).toString();
     });
-  }, baseContent);
+  }, text);
 };

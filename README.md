@@ -51,7 +51,7 @@ console.log(updatedText) //=> 'I would like to go to Japan next year, with my fr
 
 ## Variables
 
-You can add some variables to your tags.
+You can add some variables to your tags:
 
 ```js
 const text = 'I go to [country name="England"] next year, with [friend name="Lucy" to-uppercase="true"].';
@@ -68,4 +68,27 @@ const tags = {
       return toUppercase ? name.toUpperCase() : name;
    }
 };
+```
+
+## Custom delimiters
+
+You can use custom delimiters:
+
+```js
+const text = 'My first name is {first-name value="Robin"}.';
+
+const tags = {
+  'first-name': ({ value }) => value,
+};
+
+const updatedText = tag2content({
+  delimiters: {
+    end: '}',
+    start: '{',
+  },
+  tags,
+  text,
+});
+
+console.log(updatedText) //=> 'My first name is Robin.';
 ```
