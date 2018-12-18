@@ -13,7 +13,7 @@
     "prepublishOnly": "npm test && npm run lint",
     "preversion": "npm run lint",
     "test": "jest --config jestconfig.json",
-    "test-watch": "npm run test -- --watch",
+    "test:watch": "npm run test -- --watch",
     "version": "npm run format && git add -A src"
   },
   "author": "Thibault Boursier",
@@ -39,9 +39,7 @@
     "typescript": "^3.2.2"
   },
   "dependencies": {
-    "@types/camelcase": "^4.1.0",
     "@types/node": "^10.12.15",
-    "camelcase": "^5.0.0",
     "escape-string-regexp": "^1.0.5"
   },
   "files": [

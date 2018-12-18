@@ -1,4 +1,3 @@
-import * as camelCase from 'camelcase';
 import { ITagVariables } from '.';
 
 export const getVariables = (text: string): ITagVariables => {
@@ -7,8 +6,8 @@ export const getVariables = (text: string): ITagVariables => {
   let temp;
 
   while ((temp = regExp.exec(text))) {
-    const name = camelCase(temp[1]);
-    const value = getTransformedValue(temp[2]);
+    const name = toCamelCase(temp[1]);
+    const value = toBooleanOrString(temp[2]);
 
     variables[name] = value;
   }
@@ -16,7 +15,7 @@ export const getVariables = (text: string): ITagVariables => {
   return variables;
 };
 
-const getTransformedValue = (value: string): string | boolean => {
+const toBooleanOrString = (value: string): string | boolean => {
   switch (value) {
     case 'true':
       return true;
@@ -25,4 +24,12 @@ const getTransformedValue = (value: string): string | boolean => {
     default:
       return value;
   }
+};
+
+const toCamelCase = (text: string): string => {
+  return text
+    .replace(/(?:^\w|[A-Z]|\b\w)/g, (letter, index) => {
+      return index === 0 ? letter.toLowerCase() : letter.toUpperCase();
+    })
+    .replace(/[_.\-\s]+/g, '');
 };
