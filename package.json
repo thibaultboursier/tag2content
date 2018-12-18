@@ -1,6 +1,6 @@
 {
   "name": "tag2content",
-  "version": "1.1.0",
+  "version": "1.0.4",
   "description": "Replace a tag with content in a configurable way",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
