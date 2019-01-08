@@ -2,7 +2,7 @@ import { ITagVariables } from '.';
 
 export const getVariables = (text: string): ITagVariables => {
   const variables: ITagVariables = {};
-  const regExp = /(\S+)=["']?((?:.(?!["']?\s+(?:\S+)=|[>"']))+.)?["']?/gi;
+  const regExp = /(\S+)="["']?((?:.(?!["']?\s+(?:\S+)=|[>"']))+.)?["']?/gi;
   let temp;
 
   while ((temp = regExp.exec(text))) {

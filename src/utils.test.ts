@@ -13,16 +13,15 @@ test('It should return "href" variable', () => {
   });
 });
 
-test('It should return "src" and "title" variables', () => {
+test('It should return "father" variable', () => {
   // Given
-  const text = '[img src="image.jpg" title="My image"]';
+  const text = '[family father="name=John;city=Liverpool"]';
 
   // When
   const variables = getVariables(text);
 
   // Then
   expect(variables).toEqual({
-    src: 'image.jpg',
-    title: 'My image',
+    father: 'name=John;city=Liverpool',
   });
 });
